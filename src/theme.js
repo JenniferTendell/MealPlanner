@@ -1,6 +1,7 @@
 import { createTheme } from "@material-ui/core";
 
 
+
 export const theme = createTheme({
     palette: {
         primary: {
@@ -14,12 +15,12 @@ export const theme = createTheme({
     typography: {
         fontFamily: "'Quicksand', sans-serif",
         color: '#112121',
-        fontSize: '1.5rem',
+        fontSize: '6rem',
         
         h1: {
             fontFamily: "'Sansita Swashed', cursive",
             color: '#F67462',
-
+            fontSize: '6rem',
         },
         h4: {
             fontWeight: '400',
