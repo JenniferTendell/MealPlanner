@@ -22,15 +22,22 @@ export const theme = createTheme({
             color: '#F67462',
             fontSize: '6rem',
         },
-        h4: {
+        h3: {
+            fontSize: '2rem',
             fontWeight: '400',
-            color: '#423C46',
-            marginBottom: '.5rem',
-            fontSize: '2.5rem',
-            '@media (max-width: 600px)': {
-                fontSize: '2rem',
-                marginBottom: '1rem',
-            },
+            color: '#112121',
         },
+        h4: {
+            fontSize: '1.5rem',
+            color: 'white',
+        }
+    },
+
+    overrides: {
+        MuiButton: {
+            root: {
+                textTransform: 'none'
+            }
+        }
     },
 });
