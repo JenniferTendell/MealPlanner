@@ -19,5 +19,6 @@ const styles = makeStyles((theme) => ({
         width: '14rem',
         color: 'white',
         fontSize: '1.2rem',
+        margin: '0 auto',
     }
 }))

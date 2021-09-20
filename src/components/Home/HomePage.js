@@ -1,7 +1,8 @@
 import { Grid, makeStyles, Box } from "@material-ui/core";
+import { Link } from 'react-router-dom';
 import ShoppingList from "./ShoppingList";
 import PinkButton from "../DesignComponents/PinkButton";
-import MealsOverview from "./MealsOverview";
+import MealsOverview from "../DesignComponents/MealsOverview";
 import backgroundImage from '../../assets/salad.jpg';
 
 export default function HomePage() {
@@ -11,17 +12,19 @@ export default function HomePage() {
         <main className={style.root}>
             <Grid 
                 container 
-                className={style.shoppingListContainer} 
+                className={style.grid} 
                 spacing={5} 
                 justifyContent='center'
             >
                 <Grid item xs={12} sm={8} md={6}>
                     <ShoppingList />
-                    <PinkButton buttonText='+ Ny vecka'/>
+                    <Link to='recipes' style={{textDecoration: 'none'}}>
+                        <PinkButton buttonText='+ Ny vecka'/>
+                    </Link>
                 </Grid>
             </Grid>
-            <Box className={style.container}>
-                <Box className={style.mealsContainer}>
+            <Box className={style.mealsContainer}>
+                <Box className={style.colorOverlay}>
                     <MealsOverview  />
                 </Box>
             </Box>
@@ -33,25 +36,20 @@ const styles = makeStyles((theme) => ({
     root: {
         position: 'relative'
     },
-    shoppingListContainer: {        
+    grid: {        
         textAlign: 'center',
         margin: '-5.5rem auto 0',
         width: '100%',
         maxWidth: '80rem',
     },
-    container: {
+    mealsContainer: {
         marginTop: '5rem',
         width: '100%',
         backgroundImage: `url(${backgroundImage})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
     },
-    mealsContainer: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: '100%',
-        padding: '2rem 0',
+    colorOverlay: {
         backgroundColor: 'rgba(56, 128, 85, 0.5)',
     }
 }))

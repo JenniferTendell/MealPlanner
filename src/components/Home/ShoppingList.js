@@ -12,7 +12,7 @@ export default function ShoppingList() {
             <Box className={style.devider}></Box>
             </Grid>
         </Grid>
-        <Grid container xs={12} justifyContent='space-between' wrap>
+        <Grid container justifyContent='space-between'>
             {Array.from(Array(6)).map((_, index) => (
                 <Grid item xs={12} sm={6} key={index}>
                     <CheckBoxItem />
@@ -36,10 +36,5 @@ const styles = makeStyles((theme) => ({
     height: ".2rem",
     margin: ".5rem auto 2rem",
     backgroundColor: "#FFD586",
-  },
-  shoppingItemsGrid: {
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "space-between",
   },
 }));

@@ -9,7 +9,10 @@ export const theme = createTheme({
         },
         secondary:{
             main: '#388055'
-        },        
+        }, 
+        info: {
+            main: '#FFF'
+        },       
     },
 
     typography: {
@@ -20,6 +23,7 @@ export const theme = createTheme({
         h1: {
             fontFamily: "'Sansita Swashed', cursive",
             color: '#F67462',
+            textShadow: '1px 1px 3px #9C4A3E',
             fontSize: '6rem',
         },
         h3: {
@@ -33,11 +37,13 @@ export const theme = createTheme({
         }
     },
 
+    
+
     overrides: {
         MuiButton: {
             root: {
-                textTransform: 'none'
+                textTransform: 'none',
             }
-        }
-    },
+        },
+    }
 });
