@@ -1,19 +1,23 @@
 import { makeStyles, Box, Typography } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 export default function MealCard(props) {
     const style = styles();
-    const { title, image } = props.recipe;
+    const { title, image, id } = props.recipe;
+    const clickedRecipe = id
     
     
     return (
-        <Box className={style.root} style={{ backgroundImage: `url(${image})` }}>
-            <Box>
-                <Box className={style.gradient}></Box>
-                <Box className={style.infoContainer}>
-                    <Typography className={style.title} variant='h4'> {title} </Typography>
+        <Link to={'/recipe/' + clickedRecipe} style={{textDecoration: 'none'}}>
+            <Box className={style.root} style={{ backgroundImage: `url(${image})` }}>
+                <Box>
+                    <Box className={style.gradient}></Box>
+                    <Box className={style.infoContainer}>
+                        <Typography className={style.title} variant='h4'> {title} </Typography>
+                    </Box>
                 </Box>
             </Box>
-        </Box>
+        </Link>
     )
 };
 
