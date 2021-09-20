@@ -2,13 +2,15 @@ import { Button, makeStyles } from "@material-ui/core";
 
 export default function PinkButton(props) {
     const style = styles();
+    const { buttonText } = props;
+    
     return (
         <Button
             variant='contained'
             color='primary'
             className={style.button}
         >
-            {props.buttonText}
+            {buttonText}
         </Button>
     )
 };

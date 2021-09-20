@@ -4,9 +4,13 @@ import GoBackButton from "../DesignComponents/GoBackButton";
 import PinkButton from "../DesignComponents/PinkButton";
 import FilterRecipes from "./FilterRecipes";
 import MealCard from "../DesignComponents/MealCard";
+import { useContext } from "react";
+import { RecipesContext } from "../../context/recipesContext";
 
 export default function RecipesPage() {
     const style = styles();
+    const { allRecipes } = useContext(RecipesContext)
+
     return (
         <main className={style.root}>  
             <Grid container className={style.grid}>
@@ -18,9 +22,9 @@ export default function RecipesPage() {
             <PinkButton buttonText='Spara' />
             <FilterRecipes />
             <Grid container className={style.grid}>
-                {Array.from(Array(10)).map((_, index) => (
+                {allRecipes.map((recipe, index) => (
                     <Grid item xs={6} sm={6} md={3} style={{padding: '.5rem'}} key={index}>
-                        <MealCard />
+                        <MealCard recipe={recipe}/>
                     </Grid>
                 ))}
             </Grid>

@@ -4,14 +4,17 @@ import {theme} from '../theme.js';
 
 import Header from './Header';
 import SwitchContent from './SwitchContent';
+import RecipesProvider from "../context/recipesContext.js";
 
 function App() {
   return (
     <BrowserRouter>
-      <ThemeProvider theme={theme}>
-        <Header />
-        <SwitchContent />
-      </ThemeProvider>
+      <RecipesProvider>
+        <ThemeProvider theme={theme}>
+          <Header />
+          <SwitchContent />
+        </ThemeProvider>
+      </RecipesProvider>
     </BrowserRouter>
   );
 }

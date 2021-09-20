@@ -1,14 +1,17 @@
 import { makeStyles, Box, Typography } from "@material-ui/core";
 import backgroundImage from '../../assets/salad.jpg';
 
-export default function MealCard() {
+export default function MealCard(props) {
     const style = styles();
+    const { title } = props.recipe;
+    
+    
     return (
         <Box className={style.root}>
             <Box>
                 <Box className={style.gradient}></Box>
                 <Box className={style.infoContainer}>
-                    <Typography className={style.title} variant='h4'> Maträtt </Typography>
+                    <Typography className={style.title} variant='h4'> {title} </Typography>
                 </Box>
             </Box>
         </Box>
