@@ -1,13 +1,12 @@
 import { makeStyles, Box, Typography } from "@material-ui/core";
-import backgroundImage from '../../assets/salad.jpg';
 
 export default function MealCard(props) {
     const style = styles();
-    const { title } = props.recipe;
+    const { title, image } = props.recipe;
     
     
     return (
-        <Box className={style.root}>
+        <Box className={style.root} style={{ backgroundImage: `url(${image})` }}>
             <Box>
                 <Box className={style.gradient}></Box>
                 <Box className={style.infoContainer}>
@@ -25,8 +24,10 @@ const styles = makeStyles((theme) => ({
         justifyContent: 'flex-end',
         height: '14rem',
         width: '100%',
-        borderRadius: '.3rem',
-        backgroundImage: `url(${backgroundImage})`,
+        borderRadius: '.3rem', 
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center center',
     },
     gradient: {
         height: '2.5rem',
