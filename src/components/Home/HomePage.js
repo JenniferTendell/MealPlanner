@@ -1,7 +1,7 @@
 import { Grid, makeStyles, Box } from "@material-ui/core";
 import { Link } from 'react-router-dom';
 import ShoppingList from "./ShoppingList";
-import PinkButton from "../DesignComponents/PinkButton";
+import PrimaryButton from "../DesignComponents/PrimaryButton";
 import MealsOverview from "../DesignComponents/MealsOverview";
 import backgroundImage from '../../assets/salad.jpg';
 
@@ -19,7 +19,7 @@ export default function HomePage() {
                 <Grid item xs={12} sm={8} md={6}>
                     <ShoppingList />
                     <Link to='recipes' style={{textDecoration: 'none'}}>
-                        <PinkButton buttonText='+ Ny vecka'/>
+                        <PrimaryButton text='+ Ny vecka' color='primary'/>
                     </Link>
                 </Grid>
             </Grid>

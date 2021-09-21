@@ -1,7 +1,7 @@
 import { Grid, makeStyles } from "@material-ui/core";
 import MealsOverview from "../DesignComponents/MealsOverview";
 import GoBackButton from "../DesignComponents/GoBackButton";
-import PinkButton from "../DesignComponents/PinkButton";
+import PrimaryButton from "../DesignComponents/PrimaryButton";
 import FilterRecipes from "./FilterRecipes";
 import MealCard from "../DesignComponents/MealCard";
 import { useContext } from "react";
@@ -19,7 +19,7 @@ export default function RecipesPage() {
                 </Grid>
             </Grid>    
             <MealsOverview  /> 
-            <PinkButton buttonText='Spara' />
+            <PrimaryButton text='Spara' color='primary' />
             <FilterRecipes />
             <Grid container className={style.grid}>
                 {allRecipes.map((recipe, index) => (
