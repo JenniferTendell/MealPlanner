@@ -11,27 +11,26 @@ export default function SpecificRecipePage() {
     const style = styles();
     const { allRecipes } = useContext(RecipesContext)
     
-    const recipeId = window.location.href.slice(-1);
+    const recipeId = window.location.href.split('/')[4];
     const recipe = allRecipes.find(recipe => recipe.id === recipeId)
-
 
     return (
         <main className={style.root}>  
-            <Grid container className={style.grid}>
-                <Grid item>
+            <Grid container className={style.grid} alignItems='center' justifyContent='space-between'>
+                <Grid item xs={12}>
                     <GoBackButton />
                 </Grid>
-                <Grid item>
-                    <RecipeInfo />
+                <Grid item xs={6}>
+                    <RecipeInfo recipe={recipe}/>
                 </Grid>
-                <Grid item>
-                    <RecipeImage />
+                <Grid item xs={5}>
+                    <RecipeImage recipe={recipe}/>
                 </Grid>
-                <Grid item>
-                    <RecipeIngredients />
+                <Grid item xs={6}>
+                    <RecipeIngredients recipe={recipe}/>
                 </Grid>
-                <Grid item>
-                    <RecipeInstructions />
+                <Grid item xs={6}>
+                    <RecipeInstructions recipe={recipe}/>
                 </Grid>
             </Grid>    
         </main>
