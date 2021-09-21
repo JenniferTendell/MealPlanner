@@ -22,7 +22,7 @@
 
 export const recipes = [
     {
-        id: 0,
+        id: '0',
         title: 'Kyckling i sötsur sås',
         category: 'Kyckling',
         portions: '6',
@@ -41,7 +41,7 @@ export const recipes = [
         ],
     }, 
     {
-        id: 1,
+        id: '1',
         title: 'Lax med citronsås',
         category: 'Fisk',
         portions: '4',

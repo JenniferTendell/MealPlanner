@@ -25,7 +25,7 @@ const styles = makeStyles((theme) => ({
     root: {
         display: 'flex',
         alignItems: 'center',
-        padding: '3rem 0 5rem',
+        padding: '0 0 5rem',
         width: '100%',
         maxWidth: '80rem',
         margin: '0 auto',

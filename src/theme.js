@@ -26,6 +26,9 @@ export const theme = createTheme({
             textShadow: '1px 1px 3px #9C4A3E',
             fontSize: '6rem',
         },
+        h2: {
+            fontSize: '3rem',
+        },
         h3: {
             fontSize: '2rem',
             fontWeight: '400',
