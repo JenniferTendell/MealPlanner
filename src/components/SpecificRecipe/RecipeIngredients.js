@@ -15,8 +15,10 @@ export default function RecipeIngredients(props) {
             <Table>
                 <TableBody>
                     {ingredients.map((ingredient, index) => (
-                        <TableRow>
-                            <TableCell align='center'>{ ingredient[0] + ' ' + ingredient[1] }</TableCell>
+                        <TableRow key={index} >
+                            <TableCell align='center'>
+                                { ingredient[0] + ' ' + ingredient[1] }
+                            </TableCell>
                             <TableCell >{ ingredient[2] }</TableCell>
                         </TableRow>
                     ))} 
@@ -40,6 +42,9 @@ const styles = makeStyles((theme) => ({
     portionsContainer: {
         padding: '.5rem 0',
         backgroundColor: '#E0DFE3'
+    },
+    tableRow: {
+        paddingLeft: '10rem'
     }
 
 }))
