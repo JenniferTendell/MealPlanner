@@ -21,8 +21,9 @@ const styles = makeStyles((theme) => ({
     root: {
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         alignItems: 'center',
+        height: '100%',
     },
     buttonContainer: {
         display: 'flex',
