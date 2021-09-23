@@ -8,6 +8,8 @@ export default function MealsOverview() {
     const style = styles();
     const { allRecipes } = useContext(RecipesContext)
 
+    console.log(allRecipes)
+
     return (
         <Box className={style.root}>
             <Grid container>
@@ -24,10 +26,9 @@ export default function MealsOverview() {
 const styles = makeStyles((theme) => ({
     root: {
         display: 'flex',
-        alignItems: 'center',
-        padding: '0 0 5rem',
+        padding: '2rem 0',  
         width: '100%',
         maxWidth: '80rem',
-        margin: '0 auto',
+        margin: 'auto',
     }
 }))
