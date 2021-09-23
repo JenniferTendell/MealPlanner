@@ -16,17 +16,17 @@ export default function SpecificRecipePage() {
 
     return (
         <main className={style.root}>  
-            <Grid container className={style.grid} alignItems='center' justifyContent='space-between'>
+            <Grid container className={style.grid} alignItems='center' justifyContent='space-around'>
                 <Grid item xs={12}>
                     <GoBackButton />
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={5}>
                     <RecipeInfo recipe={recipe}/>
                 </Grid>
                 <Grid item xs={5}>
                     <RecipeImage recipe={recipe}/>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={5}>
                     <RecipeIngredients recipe={recipe}/>
                 </Grid>
                 <Grid item xs={6}>
