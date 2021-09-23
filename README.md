@@ -2,7 +2,7 @@
 My own meal planner.
 Still in progress...
 
-##### Go to [VueLab](https://mealplannerr.netlify.app/)
+##### Go to [MealPlanner](https://mealplannerr.netlify.app/)
 
 
 ## For developers
