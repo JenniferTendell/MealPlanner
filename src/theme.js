@@ -18,7 +18,7 @@ export const theme = createTheme({
     typography: {
         fontFamily: "'Quicksand', sans-serif",
         color: '#112121',
-        fontSize: '6rem',
+        fontSize: '18',
         
         h1: {
             fontFamily: "'Sansita Swashed', cursive",
