@@ -5,11 +5,9 @@
         category: '',
         portions: '',
         image: '',
-        ingredients: {
-            amount: [3],
-            unit: ['dl'],
-            ingredient: ['Mjölk'],
-        },
+        ingredients: [
+            [1, 'st', 'Lök'], 
+        ],
         instructions: [
             '1. ',
             '2. ',
@@ -17,7 +15,7 @@
             '4. ',
             '5. '
         ],
-    },
+    },          
 */
 
 export const recipes = [
@@ -27,11 +25,19 @@ export const recipes = [
         category: 'Kyckling',
         portions: '6',
         image: 'https://cdn1.tasteline.com/Kyckling-i-sotsur-sas-sanna-livijn-360x360.jpg',
-        ingredients: {
-            amount: [1, 1.5, 1, 825, 4.5, 1.5, 4.5, 3, 1.5, 3, 6],
-            unit: ['st', 'st', 'burk', 'g', 'dl', 'dl', 'msk', 'msk', 'msk', 'tsk', 'port'],
-            ingredient: ['Gul lök', 'Paprika', 'Ananas', 'Kyckling', 'Vatten', 'Sweet chilisås', 'Kycklingfond', 'Tomatpuré', 'Mjöl', 'Vitvinsvinäger', 'Ris'],
-        },
+        ingredients: [
+            [1, 'st', 'Gul lök'],
+            [1.5, 'st', 'Paprika'],
+            [1, 'burk', 'Ananas'],
+            [825, 'g', 'Kyckling'],
+            [4.5, 'dl', 'Vatten'],
+            [1.5, 'dl', 'Sweet chilisås'],
+            [4.5, 'msk', 'Kycklingfond'],
+            [3, 'msk', 'Tomatpuré'],
+            [1.5, 'msk', 'Mjöl'],
+            [3, 'tsk', 'Vitvinsvinäger'],
+            [6, 'port', 'Ris'], 
+        ],
         instructions: [
             '1. Skala och klyfta löken. Skölj och skär paprika i bitar.',
             '2. Koka ris enligt anvisning på förpackningen.', 
@@ -46,11 +52,16 @@ export const recipes = [
         category: 'Fisk',
         portions: '4',
         image: 'https://img.koket.se/square-large/ugnsbakad-lax-med-citronsas.jpg.webp',
-        ingredients: {
-            amount: [4, 3, 2, 2, 1, 1, 1, 4],
-            unit: ['st', 'dl', 'dl', 'msk', 'st', 'st', 'tsk', 'port'],
-            ingredient: ['Laxfilé', 'Grädde', 'Creme fraiche', 'Dill', 'Citron', 'Fiskbuljongtärning', 'Gurkmeja', 'Potatis'],
-        },
+        ingredients: [
+            [4, 'st', 'Laxfilé'],
+            [3, 'dl', 'Grädde'],
+            [2, 'dl', 'Creme fraiche'],
+            [2, 'msk', 'Dill'],
+            [1, 'st', 'Citron'],
+            [1, 'st', 'Fiskbuljongtärning'],
+            [1, 'tsk', 'Gurkmeja'],
+            [4, 'port', 'Potatis'],
+        ],
         instructions: [
             '1. Sätt ugnen på 200 grader.',
             '2. Skär laxen i portionsbitar. Lägg i en ugnssäker form.',
