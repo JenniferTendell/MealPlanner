@@ -32,16 +32,16 @@ const styles = makeStyles((theme) => ({
     root: {
         display: 'flex',
         flexDirection: 'column',
+        boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
     },
     titleContainer: {
         padding: '.8rem 0',
         borderRadius: '.3rem .3rem 0 0',
         backgroundColor: '#FFD586',
-        fontSize: '1.5rem'
     },
     portionsContainer: {
         padding: '.5rem 0',
-        backgroundColor: '#E0DFE3'
+        backgroundColor: '#E0DFE3',
     },
     tableRow: {
         paddingLeft: '10rem'

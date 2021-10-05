@@ -16,17 +16,17 @@ export default function SpecificRecipePage() {
 
     return (
         <main className={style.root}>  
-            <Grid container className={style.grid} alignItems='center' justifyContent='space-around'>
+            <Grid container className={style.grid} justifyContent='center' spacing={3}>
                 <Grid item xs={12}>
                     <GoBackButton />
                 </Grid>
-                <Grid item xs={5}>
+                <Grid item xs={6}>
                     <RecipeInfo recipe={recipe}/>
                 </Grid>
-                <Grid item xs={5}>
+                <Grid item xs={6}>
                     <RecipeImage recipe={recipe}/>
                 </Grid>
-                <Grid item xs={5}>
+                <Grid item xs={6}>
                     <RecipeIngredients recipe={recipe}/>
                 </Grid>
                 <Grid item xs={6}>
@@ -40,6 +40,7 @@ export default function SpecificRecipePage() {
 const styles = makeStyles((theme) => ({
     root: {
         textAlign: 'center',
+        marginBottom: '3rem',
     },
     grid: {
         width: '100%',
