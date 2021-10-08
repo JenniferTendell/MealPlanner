@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import { recipes } from "../assets/recipes";
 
 // Create context
@@ -6,31 +6,36 @@ export const RecipesContext = createContext();
 
 // Context provider
 const RecipesProvider = ({ children }) => {
+    
+    const initializeMealPlanner = () => {
+        const mealPlanner = localStorage.getItem('mealPlanner');
+        if (mealPlanner) {
+            return JSON.parse(mealPlanner);
+        };
+        return [];
+    };
 
-    const allRecipes = recipes;
-    let mealPlannerRecipes = [];
-
-
+    const addRecipeToMealPlan = (recipeTitle) => {
+        const recipe = allRecipes.find(recipe => recipe.title === recipeTitle);
+        mealPlanRecipes.push(recipe);
+        window.localStorage.setItem('mealPlanner', JSON.stringify(mealPlanRecipes));
+    };
 
     /* FUNKTIONER
     Söka på recept
     Kategorisera recept + Lägg till favoriter
     Lägga till favoriter
-    Visa/lägg till/ta bort valda recept för veckan
+    ta bort valda recept för veckan
     Sammanställ veckans ingredienser.
     */
 
-    function addRecipeToMealPlan(recipeTitle) {
-        const recipe = allRecipes.find(recipe => recipe.title === recipeTitle);
-        mealPlannerRecipes.push(recipe);
-        //window.localStorage.setItem('mealPlanner', mealPlannerRecipes);
-    };
-
+    const allRecipes = recipes;
+    const [mealPlanRecipes, setMealPlanRecipes] = useState(initializeMealPlanner());
 
     return(
         <RecipesContext.Provider value={{
             allRecipes,
-            mealPlannerRecipes,
+            mealPlanRecipes,
             addRecipeToMealPlan,
         }}>
             { children }

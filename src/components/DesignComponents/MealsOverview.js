@@ -6,12 +6,12 @@ import { RecipesContext } from '../../context/recipesContext';
 
 export default function MealsOverview() {
     const style = styles();
-    const { mealPlannerRecipes } = useContext(RecipesContext)
+    const { mealPlanRecipes } = useContext(RecipesContext)
 
     return (
         <Box className={style.root}>
             <Grid container>
-                {mealPlannerRecipes.map((recipe, index) => (
+                {mealPlanRecipes.map((recipe, index) => (
                     <Grid item xs={6} sm={6} md={3} style={{padding: '.5rem'}} key={index}>
                         <MealCard recipe={recipe} />
                     </Grid>
