@@ -8,7 +8,7 @@ export const RecipesContext = createContext();
 const RecipesProvider = ({ children }) => {
 
     const allRecipes = recipes;
-    let weekRecipes = [];
+    let mealPlannerRecipes = [];
 
 
 
@@ -22,14 +22,15 @@ const RecipesProvider = ({ children }) => {
 
     function addRecipeToMealPlan(recipeTitle) {
         const recipe = allRecipes.find(recipe => recipe.title === recipeTitle);
-        weekRecipes.push(recipe);
+        mealPlannerRecipes.push(recipe);
+        //window.localStorage.setItem('mealPlanner', mealPlannerRecipes);
     };
 
 
     return(
         <RecipesContext.Provider value={{
             allRecipes,
-            weekRecipes,
+            mealPlannerRecipes,
             addRecipeToMealPlan,
         }}>
             { children }
