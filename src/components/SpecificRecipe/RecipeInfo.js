@@ -10,7 +10,7 @@ export default function RecipeInfo(props) {
         <Box className={style.root}> 
             <Typography variant='h2'>{ title }</Typography>
             <Box className={style.buttonContainer}>
-                <PrimaryButton text='Lägg till' color='secondary'></PrimaryButton>
+                <PrimaryButton text='Lägg till' color='secondary' recipeTitle={title} ></PrimaryButton>
                 <HeartButton></HeartButton>
             </Box>
         </Box>
