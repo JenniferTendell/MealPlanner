@@ -5,12 +5,21 @@ import { RecipesContext } from "../../context/recipesContext";
 export default function PrimaryButton(props) {
     const style = styles();
     const { text, color, recipeTitle } = props;
-    const { addRecipeToMealPlan } = useContext(RecipesContext)
+    const { mealPlanRecipes, addRecipeToMealPlan } = useContext(RecipesContext)
 
-    function handleClick() {
+    const handleClick = () => {
         if (recipeTitle) {
-            addRecipeToMealPlan(recipeTitle);
+            checkIfRecipeExistInMealPlan()
         }
+    };
+    
+    const checkIfRecipeExistInMealPlan = () => {
+        const RecipeToAdd = mealPlanRecipes.find(recipe => recipe.title === recipeTitle);
+        const recipeExist = mealPlanRecipes.includes(RecipeToAdd);
+        
+        if (!recipeExist) {
+            addRecipeToMealPlan(recipeTitle);
+        } 
     };
     
     return (
