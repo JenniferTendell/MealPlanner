@@ -19,7 +19,6 @@ export default function RecipesPage() {
                 </Grid>
             </Grid>    
             <MealsOverview  /> 
-            <PrimaryButton text='Spara' color='primary' />
             <FilterRecipes />
             <Grid container className={style.grid}>
                 {allRecipes.map((recipe, index) => (
