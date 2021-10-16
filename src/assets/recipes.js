@@ -1,6 +1,6 @@
 /* Template 
 {
-        id: 0,
+        id: '3',
         title: '',
         category: '',
         portions: '',
@@ -70,4 +70,25 @@ export const recipes = [
             '5. Servera laxen med kokt potatis och önskad sallad.'
         ],
     },
+    {
+        id: '2',
+        title: 'Köttfärssoppa med potatis',
+        category: 'Köttfärs',
+        portions: '8',
+        image: 'https://assets.icanet.se/e_sharpen:80,q_auto,dpr_1.25,w_718,h_718,c_lfill/imagevaultfiles/id_142318/cf_259/mustig_kottfarssoppa_med_rotfrukter.jpg',
+        ingredients: [
+            [1, 'st', 'Purjolök'], 
+            [6, 'st', 'Potatis'], 
+            [1000, 'g', 'Köttfärs'], 
+            [2, 'tsk', 'Paprikapulver'], 
+            ['1000', 'g', 'Krossade tomater'], 
+            ['2', 'st', 'Köttbuljongtärning'], 
+            ['14', 'dl', 'Vatten'], 
+        ],
+        instructions: [
+            '1. Skölj, ansa och strimla purjolöken. Skala och skär potatisen i skivor.',
+            '2. Bryn köttfärsen i en gryta. Krydda med salt, peppar och paprikapulver.',
+            '3. Lägg ner purjolök och potatis i grytan. Tillsätt krossade tomater, buljongtärningar och vatten. Låt soppan sjuda under lock ca 15 minuter. Smaka ev. av med mer kryddor.',
+        ],
+    }, 
 ]
