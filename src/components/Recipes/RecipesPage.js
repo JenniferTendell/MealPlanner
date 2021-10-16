@@ -1,7 +1,6 @@
 import { Grid, makeStyles } from "@material-ui/core";
 import MealsOverview from "../DesignComponents/MealsOverview";
 import GoBackButton from "../DesignComponents/GoBackButton";
-import PrimaryButton from "../DesignComponents/PrimaryButton";
 import FilterRecipes from "./FilterRecipes";
 import MealCard from "../DesignComponents/MealCard";
 import { useContext } from "react";
