@@ -15,10 +15,38 @@ const RecipesProvider = ({ children }) => {
         return [];
     };
 
+    const checkIfRecipeExistInMealPlan = (recipeTitle) => {
+        const RecipeToAdd = mealPlanRecipes.find(recipe => recipe.title === recipeTitle);
+        const recipeExist = mealPlanRecipes.includes(RecipeToAdd);
+        
+        if (!recipeExist) {
+            addRecipeToMealPlan(recipeTitle);
+        } 
+    };
+
     const addRecipeToMealPlan = (recipeTitle) => {
-        const recipe = allRecipes.find(recipe => recipe.title === recipeTitle);
-        mealPlanRecipes.push(recipe);
-        window.localStorage.setItem('mealPlanner', JSON.stringify(mealPlanRecipes));
+        const recipeToAdd = allRecipes.find(recipe => recipe.title === recipeTitle);
+        let updatedRecipes = [...mealPlanRecipes, recipeToAdd];
+
+        setMealPlanRecipes(updatedRecipes);
+        updateMealPlanRecipesInLocalStorage(updatedRecipes);    
+    };
+    
+    const removeRecipeFromMealPlan = (recipeTitle) => {
+        const recipeToRemove = allRecipes.find(recipe => recipe.title === recipeTitle);
+        const updatedRecipes = [...mealPlanRecipes];
+
+        const index = updatedRecipes.indexOf(recipeToRemove);
+        if (index > -1) {
+            updatedRecipes.splice(index, 1);
+        };
+
+        setMealPlanRecipes(updatedRecipes);
+        updateMealPlanRecipesInLocalStorage(updatedRecipes);
+    };
+    
+    const updateMealPlanRecipesInLocalStorage = (updatedRecipes) => {
+        window.localStorage.setItem('mealPlanner', JSON.stringify(updatedRecipes));
     };
 
     /* FUNKTIONER
@@ -37,6 +65,8 @@ const RecipesProvider = ({ children }) => {
             allRecipes,
             mealPlanRecipes,
             addRecipeToMealPlan,
+            checkIfRecipeExistInMealPlan,
+            removeRecipeFromMealPlan,
         }}>
             { children }
         </RecipesContext.Provider>

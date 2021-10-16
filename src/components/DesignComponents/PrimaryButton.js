@@ -2,25 +2,21 @@ import { Button, makeStyles } from "@material-ui/core";
 import { useContext } from "react";
 import { RecipesContext } from "../../context/recipesContext";
 
-export default function PrimaryButton(props) {
+export default function PrimaryButton({ text, color, recipeTitle }) {
     const style = styles();
-    const { text, color, recipeTitle } = props;
-    const { mealPlanRecipes, addRecipeToMealPlan } = useContext(RecipesContext)
+    const { checkIfRecipeExistInMealPlan, removeRecipeFromMealPlan } = useContext(RecipesContext)
 
     const handleClick = () => {
         if (recipeTitle) {
-            checkIfRecipeExistInMealPlan()
-        }
+            if (text === 'Lägg till') {
+                checkIfRecipeExistInMealPlan(recipeTitle);
+            } else {
+                removeRecipeFromMealPlan(recipeTitle);
+            }
+        };
     };
     
-    const checkIfRecipeExistInMealPlan = () => {
-        const RecipeToAdd = mealPlanRecipes.find(recipe => recipe.title === recipeTitle);
-        const recipeExist = mealPlanRecipes.includes(RecipeToAdd);
-        
-        if (!recipeExist) {
-            addRecipeToMealPlan(recipeTitle);
-        } 
-    };
+    
     
     return (
         <Button
