@@ -1,12 +1,18 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { recipes } from "../assets/recipes";
 
 // Create context
 export const RecipesContext = createContext();
 
 // Context provider
-const RecipesProvider = ({ children }) => {
-    
+const RecipesProvider = ({ children }) => { 
+
+     /* FUNKTIONER
+        Söka på recept
+        Kategorisera recept + Lägg till favoriter
+        Lägga till favoriter
+    */
+
     const initializeMealPlanner = () => {
         const mealPlanner = localStorage.getItem('mealPlanner');
         if (mealPlanner) {
@@ -15,25 +21,17 @@ const RecipesProvider = ({ children }) => {
         return [];
     };
 
-    const checkIfRecipeExistInMealPlan = (recipeTitle) => {
-        const RecipeToAdd = mealPlanRecipes.find(recipe => recipe.title === recipeTitle);
-        const recipeExist = mealPlanRecipes.includes(RecipeToAdd);
-        
-        if (!recipeExist) {
-            addRecipeToMealPlan(recipeTitle);
-        } 
-    };
-
     const addRecipeToMealPlan = (recipeTitle) => {
         const recipeToAdd = allRecipes.find(recipe => recipe.title === recipeTitle);
-        let updatedRecipes = [...mealPlanRecipes, recipeToAdd];
+        const updatedRecipes = [...mealPlanRecipes, recipeToAdd];
 
         setMealPlanRecipes(updatedRecipes);
-        updateMealPlanRecipesInLocalStorage(updatedRecipes);    
+        updateMealPlanRecipesInLocalStorage(updatedRecipes);
+        updateShoppingList(updatedRecipes);  
     };
     
     const removeRecipeFromMealPlan = (recipeTitle) => {
-        const recipeToRemove = allRecipes.find(recipe => recipe.title === recipeTitle);
+        const recipeToRemove = mealPlanRecipes.find(recipe => recipe.title === recipeTitle);
         const updatedRecipes = [...mealPlanRecipes];
 
         const index = updatedRecipes.indexOf(recipeToRemove);
@@ -43,29 +41,63 @@ const RecipesProvider = ({ children }) => {
 
         setMealPlanRecipes(updatedRecipes);
         updateMealPlanRecipesInLocalStorage(updatedRecipes);
+        updateShoppingList(updatedRecipes);
     };
     
     const updateMealPlanRecipesInLocalStorage = (updatedRecipes) => {
         window.localStorage.setItem('mealPlanner', JSON.stringify(updatedRecipes));
     };
 
-    /* FUNKTIONER
-    Söka på recept
-    Kategorisera recept + Lägg till favoriter
-    Lägga till favoriter
-    ta bort valda recept för veckan
-    Sammanställ veckans ingredienser.
-    */
+    const updateShoppingList = (updatedRecipes) => {
+        let newShoppingList = [];
+
+        updatedRecipes.forEach(recipe => {
+            recipe.ingredients.forEach(ingredient => {
+                
+                const ingredientExist = newShoppingList.find(shoppingItem => shoppingItem.ingredient === ingredient[2])
+                
+                if (ingredientExist) {
+                    if (ingredientExist.value === ingredient[1]) {
+                        ingredientExist.quantity += ingredient[0]
+                    } else {
+                        newShoppingList = [ 
+                            ...newShoppingList, 
+                            { 
+                                quantity: ingredient[0], 
+                                value: ingredient[1], 
+                                ingredient: ingredient[2] 
+                            },
+                        ];
+                    }
+                } else {
+                    newShoppingList = [ 
+                        ...newShoppingList, 
+                        { 
+                            quantity: ingredient[0], 
+                            value: ingredient[1], 
+                            ingredient: ingredient[2] 
+                        },
+                    ];
+                }
+            })
+        })
+        setShoppingList(newShoppingList); 
+    };
 
     const allRecipes = recipes;
     const [mealPlanRecipes, setMealPlanRecipes] = useState(initializeMealPlanner());
+    const [shoppingList, setShoppingList] = useState([]);
+
+    useEffect(() => {
+        updateShoppingList(mealPlanRecipes)
+    }, [mealPlanRecipes])
 
     return(
         <RecipesContext.Provider value={{
             allRecipes,
             mealPlanRecipes,
+            shoppingList,
             addRecipeToMealPlan,
-            checkIfRecipeExistInMealPlan,
             removeRecipeFromMealPlan,
         }}>
             { children }

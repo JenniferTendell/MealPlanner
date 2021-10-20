@@ -4,12 +4,12 @@ import { RecipesContext } from "../../context/recipesContext";
 
 export default function PrimaryButton({ text, color, recipeTitle }) {
     const style = styles();
-    const { checkIfRecipeExistInMealPlan, removeRecipeFromMealPlan } = useContext(RecipesContext)
+    const { addRecipeToMealPlan , removeRecipeFromMealPlan } = useContext(RecipesContext)
 
     const handleClick = () => {
         if (recipeTitle) {
             if (text === 'Lägg till') {
-                checkIfRecipeExistInMealPlan(recipeTitle);
+                addRecipeToMealPlan(recipeTitle);
             } else {
                 removeRecipeFromMealPlan(recipeTitle);
             }

@@ -81,9 +81,9 @@ export const recipes = [
             [6, 'st', 'Potatis'], 
             [1000, 'g', 'Köttfärs'], 
             [2, 'tsk', 'Paprikapulver'], 
-            ['1000', 'g', 'Krossade tomater'], 
-            ['2', 'st', 'Köttbuljongtärning'], 
-            ['14', 'dl', 'Vatten'], 
+            [1000, 'g', 'Krossade tomater'], 
+            [2, 'st', 'Köttbuljongtärning'], 
+            [14, 'dl', 'Vatten'], 
         ],
         instructions: [
             '1. Skölj, ansa och strimla purjolöken. Skala och skär potatisen i skivor.',

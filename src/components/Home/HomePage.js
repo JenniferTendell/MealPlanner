@@ -16,7 +16,7 @@ export default function HomePage() {
                 spacing={5} 
                 justifyContent='center'
             >
-                <Grid item xs={12} sm={8} md={6}>
+                <Grid item xs={12} sm={12} md={8}>
                     <ShoppingList />
                     <Link to='recipes' style={{textDecoration: 'none'}}>
                         <PrimaryButton text='+ Ny vecka' color='primary'/>
