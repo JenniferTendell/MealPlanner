@@ -29,14 +29,20 @@ export const theme = createTheme({
             fontSize: '3rem',
         },
         h3: {
-            fontSize: '2rem',
+            fontFamily: "'Sansita Swashed', cursive",
+            fontSize: '3rem',
             fontWeight: '400',
-            color: '#112121',
+            color: '#FCBC30',
         },
         h4: {
+            fontFamily: "'Sansita Swashed', cursive",
+            fontSize: '2rem',
+            color: '#C9C9C9',
+        },
+        subtitle1: {
             fontSize: '1.5rem',
             color: 'white',
-        }
+        },
     },
 
     

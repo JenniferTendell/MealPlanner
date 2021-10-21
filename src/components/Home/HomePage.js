@@ -1,10 +1,11 @@
-import { Grid, makeStyles, Box } from "@material-ui/core";
+import { makeStyles, Box, Typography } from "@material-ui/core";
 import { Link } from 'react-router-dom';
 import ShoppingList from "./ShoppingList";
 import PrimaryButton from "../DesignComponents/PrimaryButton";
 import MealsOverview from "../DesignComponents/MealsOverview";
 import { useContext, useEffect } from "react";
 import { RecipesContext } from "../../context/recipesContext";
+import backgroundImage from "../../assets/BgShoppingList.jpg";
 
 export default function HomePage() {
     const style = styles();
@@ -15,47 +16,35 @@ export default function HomePage() {
     });
 
     return (
-        <main className={style.root}>
-            <Grid 
-                container 
-                className={style.grid} 
-                spacing={5} 
-                justifyContent='center'
-            >
-                <Grid item xs={12} sm={12} md={8}>
-                    <ShoppingList />
-                    <Link to='recipes' style={{textDecoration: 'none'}}>
-                        <PrimaryButton text='+ Ny vecka' color='primary'/>
-                    </Link>
-                </Grid>
-            </Grid>
+        <main>
             <Box className={style.mealsContainer}>
-                <Box className={style.colorOverlay}>
-                    <MealsOverview  />
-                </Box>
+                <Typography variant='h4'>Maträtter denna veckan</Typography>
+                <MealsOverview  />  
+                <Link to='recipes' style={{textDecoration: 'none'}}>
+                    <PrimaryButton text='+ Ny vecka' color='primary'/>
+                </Link>
+            </Box>
+            <Box className={style.shoppingListContainer}>
+                <ShoppingList />
             </Box>
         </main>
     )
 };
 
 const styles = makeStyles((theme) => ({
-    root: {
-        position: 'relative'
-    },
-    grid: {        
-        textAlign: 'center',
-        margin: '-5.5rem auto 0',
-        width: '100%',
-        maxWidth: '80rem',
-    },
     mealsContainer: {
-        marginTop: '5rem',
+        marginTop: '2rem',
         width: '100%',
-        //  backgroundImage: `url(${backgroundImage})`,
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
+        textAlign: 'center',
     },
-    colorOverlay: {
-        backgroundColor: 'rgba(56, 128, 85, 0.5)',
-    }
+    shoppingListContainer: {
+        display: 'flex',
+        justifyContent: 'center',
+        width: '100%',
+        height: '100%',
+        marginTop: '5rem',
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+    },
 }))

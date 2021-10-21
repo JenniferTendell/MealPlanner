@@ -9,39 +9,38 @@ export default function ShoppingList() {
 
   return (
     <Paper className={style.paper} elevation={3}>
-        <Grid container justifyContent="center">
-            <Grid item xs={12}>
-            <Typography variant="h3">Inköpslista</Typography>
-            <Box className={style.devider}></Box>
-            </Grid>
+      <Grid container>
+        <Grid item xs={12}>
+          <Typography variant="h3">Inköpslista</Typography>
+          <Box className={style.devider}></Box>
         </Grid>
-        <Grid container justifyContent='space-between'>
-            {shoppingList.map((shoppingItem, index) => (
-                <Grid item xs={12} sm={6} key={index} className={style.shoppingListGrid}>
-                    <CheckBoxItem shoppingItem={shoppingItem} />
-                </Grid>
-            ))}
-        </Grid>
+      </Grid>
+      <Grid container justifyContent="space-between">
+        {shoppingList.map((shoppingItem, index) => (
+          <Grid item xs={12} sm={6} key={index} className={style.shoppingListGrid}>
+            <CheckBoxItem shoppingItem={shoppingItem} />
+          </Grid>
+        ))}
+      </Grid>
     </Paper>
   );
 }
 
 const styles = makeStyles((theme) => ({
   paper: {
-    width: "100%",
-    padding: "1.5rem 1rem 2.5rem",
-    marginBottom: '2rem',
+    width: "60rem",
+    padding: "1rem 2.5rem 2rem",
+    margin: "4rem 1rem",
     textAlign: "center",
   },
   devider: {
-    width: "60%",
-    minWidth: "12rem",
-    height: ".2rem",
-    margin: ".5rem auto 2rem",
-    backgroundColor: "#FFD586",
+    width: "100%",
+    height: ".1rem",
+    margin: ".5rem 0 2rem",
+    backgroundColor: "#C9C9C9",
   },
   shoppingListGrid: {
-    textAlign: 'left', 
-    paddingLeft: '1rem',
+    textAlign: "left",
+    paddingLeft: "1rem",
   },
 }));

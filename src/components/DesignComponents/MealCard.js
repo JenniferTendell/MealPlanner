@@ -13,7 +13,7 @@ export default function MealCard(props) {
                 <Box>
                     <Box className={style.gradient}></Box>
                     <Box className={style.infoContainer}>
-                        <Typography className={style.title} variant='h4'> {title} </Typography>
+                        <Typography className={style.title} variant='subtitle1'> {title} </Typography>
                     </Box>
                 </Box>
             </Box>

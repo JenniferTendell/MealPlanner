@@ -25,12 +25,12 @@ export default function MealsOverview() {
         <Box className={style.root}>
             <Grid container>
                 {mealPlanRecipes.map((recipe, index) => (
-                    <Grid item xs={6} sm={6} md={3} style={{padding: '.5rem'}} key={index}>
+                    <Grid item xs={12} sm={6} md={3} style={{padding: '.5rem'}} key={index}>
                         <MealCard recipe={recipe} />
                     </Grid>
                 ))}
                 {mealCardPlaceholder().map((index) => (
-                    <Grid item xs={6} sm={6} md={3} style={{padding: '.5rem'}} key={index}>
+                    <Grid item xs={12} sm={6} md={3} style={{padding: '.5rem'}} key={index}>
                         <MealCardPlaceholder />
                     </Grid>
                 ))}
