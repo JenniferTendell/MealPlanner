@@ -1,14 +1,18 @@
+import { useContext, useEffect } from "react";
 import { Grid, makeStyles } from "@material-ui/core";
 import MealsOverview from "../DesignComponents/MealsOverview";
 import GoBackButton from "../DesignComponents/GoBackButton";
 import FilterRecipes from "./FilterRecipes";
 import MealCard from "../DesignComponents/MealCard";
-import { useContext } from "react";
 import { RecipesContext } from "../../context/recipesContext";
 
 export default function RecipesPage() {
     const style = styles();
-    const { allRecipes } = useContext(RecipesContext)
+    const { allRecipes, setActivePage } = useContext(RecipesContext);
+
+    useEffect(() => {
+        setActivePage(window.location.pathname);
+    });
 
     return (
         <main className={style.root}>  

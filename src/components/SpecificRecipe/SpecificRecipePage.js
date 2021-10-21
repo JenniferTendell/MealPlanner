@@ -1,5 +1,5 @@
 import { Grid, makeStyles } from "@material-ui/core";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { RecipesContext } from "../../context/recipesContext";
 import GoBackButton from "../DesignComponents/GoBackButton";
 import RecipeInfo from "./RecipeInfo";
@@ -9,10 +9,14 @@ import RecipeInstructions from "./RecipeInstructions";
 
 export default function SpecificRecipePage() {
     const style = styles();
-    const { allRecipes } = useContext(RecipesContext)
+    const { allRecipes, setActivePage } = useContext(RecipesContext)
     
     const recipeId = window.location.href.split('/')[4];
     const recipe = allRecipes.find(recipe => recipe.id === recipeId)
+
+    useEffect(() => {
+        setActivePage(window.location.pathname);
+    });
 
     return (
         <main className={style.root}>  

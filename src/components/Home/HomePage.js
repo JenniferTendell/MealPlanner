@@ -4,9 +4,16 @@ import ShoppingList from "./ShoppingList";
 import PrimaryButton from "../DesignComponents/PrimaryButton";
 import MealsOverview from "../DesignComponents/MealsOverview";
 import backgroundImage from '../../assets/salad.jpg';
+import { useContext, useEffect } from "react";
+import { RecipesContext } from "../../context/recipesContext";
 
 export default function HomePage() {
     const style = styles();
+    const { setActivePage } = useContext(RecipesContext);
+
+    useEffect(() => {
+        setActivePage(window.location.pathname);
+    });
 
     return (
         <main className={style.root}>

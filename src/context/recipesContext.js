@@ -92,6 +92,9 @@ const RecipesProvider = ({ children }) => {
         updateShoppingList(mealPlanRecipes)
     }, [mealPlanRecipes])
 
+    /* Design context */
+    const [activePage, setActivePage] = useState('')
+
     return(
         <RecipesContext.Provider value={{
             allRecipes,
@@ -99,6 +102,8 @@ const RecipesProvider = ({ children }) => {
             shoppingList,
             addRecipeToMealPlan,
             removeRecipeFromMealPlan,
+            setActivePage,
+            activePage,
         }}>
             { children }
         </RecipesContext.Provider>
