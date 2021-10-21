@@ -2,7 +2,6 @@ import { Box, FormControl, Grid, makeStyles, MenuItem } from "@material-ui/core"
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useState } from "react";
-import backgroundImage from '../../assets/pasta.jpg';
 import { recipes } from '../../assets/recipes'
 import { Select } from "@mui/material";
 
@@ -67,7 +66,7 @@ const styles = makeStyles((theme) => ({
     root: {
         height: '15rem',
         margin: '5rem 0 3rem',
-        backgroundImage: `url(${backgroundImage})`,
+        //  backgroundImage: `url(${backgroundImage})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
     },

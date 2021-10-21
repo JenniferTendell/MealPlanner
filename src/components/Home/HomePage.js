@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import ShoppingList from "./ShoppingList";
 import PrimaryButton from "../DesignComponents/PrimaryButton";
 import MealsOverview from "../DesignComponents/MealsOverview";
-import backgroundImage from '../../assets/salad.jpg';
 import { useContext, useEffect } from "react";
 import { RecipesContext } from "../../context/recipesContext";
 
@@ -52,7 +51,7 @@ const styles = makeStyles((theme) => ({
     mealsContainer: {
         marginTop: '5rem',
         width: '100%',
-        backgroundImage: `url(${backgroundImage})`,
+        //  backgroundImage: `url(${backgroundImage})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
     },
