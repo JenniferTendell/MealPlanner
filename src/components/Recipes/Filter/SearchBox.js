@@ -18,11 +18,12 @@ export default function SearchBox() {
 
   const updateSearchValue = (newSearchValue) => {
     setSearchInputValue(newSearchValue);
-    filterRecipes(newSearchValue.toLowerCase());
+    filterRecipes(newSearchValue);
   };
   
   return (
     <Autocomplete
+      freeSolo
       value={value}
       onChange={(event, newValue) => {
         setValue(newValue);
