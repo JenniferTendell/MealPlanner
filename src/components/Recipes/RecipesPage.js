@@ -2,13 +2,13 @@ import { useContext, useEffect } from "react";
 import { Grid, makeStyles } from "@material-ui/core";
 import MealsOverview from "../DesignComponents/MealsOverview";
 import GoBackButton from "../DesignComponents/GoBackButton";
-import FilterRecipes from "./FilterRecipes";
+import FilterRecipes from "./Filter/FilterRecipes";
 import MealCard from "../DesignComponents/MealCard";
 import { RecipesContext } from "../../context/recipesContext";
 
 export default function RecipesPage() {
     const style = styles();
-    const { allRecipes, setActivePage } = useContext(RecipesContext);
+    const { setActivePage, filteredRecipes } = useContext(RecipesContext);
 
     useEffect(() => {
         setActivePage(window.location.pathname);
@@ -24,7 +24,7 @@ export default function RecipesPage() {
             <MealsOverview  /> 
             <FilterRecipes />
             <Grid container className={style.grid}>
-                {allRecipes.map((recipe, index) => (
+                {filteredRecipes.map((recipe, index) => (
                     <Grid item xs={6} sm={6} md={3} style={{padding: '.5rem'}} key={index}>
                         <MealCard recipe={recipe}/>
                     </Grid>

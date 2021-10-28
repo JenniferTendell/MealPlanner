@@ -84,9 +84,15 @@ const RecipesProvider = ({ children }) => {
         setShoppingList(newShoppingList); 
     };
 
+    const filterRecipes = (searchInputValue) => {
+        const recipeSearchResults = allRecipes.filter((recipe) => recipe.title.toLowerCase().includes(searchInputValue));
+        setFilteredRecipes(recipeSearchResults);
+    };
+
     const allRecipes = recipes;
     const [mealPlanRecipes, setMealPlanRecipes] = useState(initializeMealPlanner());
     const [shoppingList, setShoppingList] = useState([]);
+    const [filteredRecipes, setFilteredRecipes] = useState(allRecipes);
 
     useEffect(() => {
         updateShoppingList(mealPlanRecipes)
@@ -104,6 +110,8 @@ const RecipesProvider = ({ children }) => {
             removeRecipeFromMealPlan,
             setActivePage,
             activePage,
+            filterRecipes,
+            filteredRecipes,
         }}>
             { children }
         </RecipesContext.Provider>
