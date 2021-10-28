@@ -1,4 +1,4 @@
-import { makeStyles, Box, Typography } from "@material-ui/core";
+import { makeStyles, Box } from "@material-ui/core";
 import { Link } from 'react-router-dom';
 import ShoppingList from "./ShoppingList";
 import PrimaryButton from "../DesignComponents/PrimaryButton";
@@ -18,7 +18,6 @@ export default function HomePage() {
     return (
         <main>
             <Box className={style.mealsContainer}>
-                <Typography variant='h4'>Maträtter denna veckan</Typography>
                 <MealsOverview  />  
                 <Link to='recipes' style={{textDecoration: 'none'}}>
                     <PrimaryButton text='+ Ny vecka' color='primary'/>

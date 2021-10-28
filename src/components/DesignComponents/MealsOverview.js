@@ -1,4 +1,4 @@
-import { Grid, Box, makeStyles } from '@material-ui/core';
+import { Grid, Box, makeStyles, Typography } from '@material-ui/core';
 import { useContext } from 'react';
 import MealCard from '../DesignComponents/MealCard';
 import { RecipesContext } from '../../context/recipesContext';
@@ -9,7 +9,7 @@ export default function MealsOverview() {
     const style = styles();
     const { mealPlanRecipes } = useContext(RecipesContext);
 
-    const mealCardPlaceholder = () => {
+    const getMealCardPlaceholder = () => {
         const savedRecipes = mealPlanRecipes.length;
 
         switch(savedRecipes) {
@@ -23,13 +23,14 @@ export default function MealsOverview() {
 
     return (
         <Box className={style.root}>
+            <Typography variant='h4' className={style.title}>Maträtter denna veckan</Typography>
             <Grid container>
-                {mealPlanRecipes.map((recipe, index) => (
-                    <Grid item xs={12} sm={6} md={3} style={{padding: '.5rem'}} key={index}>
+                {mealPlanRecipes.map((recipe) => (
+                    <Grid item xs={12} sm={6} md={3} style={{padding: '.5rem'}} key={recipe.id}>
                         <MealCard recipe={recipe} />
                     </Grid>
                 ))}
-                {mealCardPlaceholder().map((index) => (
+                {getMealCardPlaceholder().map((index) => (
                     <Grid item xs={12} sm={6} md={3} style={{padding: '.5rem'}} key={index}>
                         <MealCardPlaceholder />
                     </Grid>
@@ -42,9 +43,13 @@ export default function MealsOverview() {
 const styles = makeStyles((theme) => ({
     root: {
         display: 'flex',
+        flexDirection: 'column',
         padding: '2rem 0',  
         width: '100%',
         maxWidth: '80rem',
         margin: 'auto',
+    },
+    title: {
+        marginBottom: '2rem',
     }
 }))
